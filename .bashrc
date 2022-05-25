@@ -134,8 +134,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# RUST ------------------------------------------------------------
+# Rust Aliases
+#bat 
+alias cat='bat '
+#exa
+alias ls='exa -a -1 -l -F --color always  -g  --no-user -s type '
+#
 
 
-## STARSHIP ---------------------------------------------
+# STARSHIP ---------------------------------------------
 # Configuration for starship 
 eval "$(starship init bash)"
