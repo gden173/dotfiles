@@ -17,11 +17,9 @@ Plug 'nvim-orgmode/orgmode'
 " Formater
 Plug 'Chiel92/vim-autoformat'
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
-Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
-Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'tpope/vim-fugitive'            " allows git commands in vim session
-Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
+Plug 'romgrk/doom-one.vim'
 Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
@@ -38,6 +36,10 @@ set encoding=UTF-8
 
 call plug#end()
 
+
+" let g:doom_one_terminal_colors = v:true
+
+
 " remap dash search key
 nmap <silent> <leader>dd <Plug>DashSearch<CR>
 
@@ -50,26 +52,17 @@ let g:rout_follow_colorscheme = 1
 
 " R commands in R output are highlighted
 let g:Rout_more_colors = 1
+
 " turn on spelling and make a spell file
 set spelllang=en_au
 set spellfile=~/.config/nvim/en.utf-8.add
-
-
-" nerdtree
-nnoremap <C-f> :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
 
 " Tags
 nmap <F3> :TagbarToggle<CR>
 
 :set completeopt-=preview " For No Previews
 
-:colorscheme jellybeans
 
-let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="~"
 
 " --- Just Some Notes ---
 " :PlugClean :PlugInstall :UpdateRemotePlugins
