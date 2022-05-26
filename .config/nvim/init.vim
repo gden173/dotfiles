@@ -19,7 +19,6 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'tpope/vim-fugitive'            " allows git commands in vim session
-Plug 'romgrk/doom-one.vim'
 Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
@@ -37,7 +36,6 @@ set encoding=UTF-8
 call plug#end()
 
 
-" let g:doom_one_terminal_colors = v:true
 
 
 " remap dash search key
@@ -71,23 +69,6 @@ nmap <F3> :TagbarToggle<CR>
 " :CocInstall coc-clangd
 " :CocInstall coc-snippets
 " :CocCommand snippets.edit... FOR EACH FILE TYPE
-
-" air-line
-let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
-
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
 
