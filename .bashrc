@@ -1,8 +1,24 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+alias pf="fzf --preview='less {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
+
+
+# Set VI mode 
+set -o vi
+bind "jj":vi-movement-mode
+
+# """"""""""""""""""""""""""""""""""""""""""""""""""""""""
+# 
+# Enter the editor by pressing v in normal mode 
+# and execute the commands by saving the temporary 
+# file. 
+# """"""""""""""""""""""""""""""""""""""""""""""""""""""""
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 ## CONFIG --------------------------------------------------
+
 # Alias for dotfiles bare repository 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 # config config --local status.showUntrackedFiles no
