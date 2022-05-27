@@ -146,3 +146,8 @@ alias ls='exa -a -1 -l -F --color always  -g  --no-user -s type '
 # STARSHIP ---------------------------------------------
 # Configuration for starship 
 eval "$(starship init bash)"
+
+# """"""""""""""""""""""""""""""""""""""""""""""""
+# Run NeoFetch  
+# """"""""""""""""""""""""""""""""""""""""""""""""
+neofetch
