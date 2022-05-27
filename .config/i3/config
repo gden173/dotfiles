@@ -15,8 +15,9 @@
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+#font pango:Source Code Pro 8
 
+font pango:DejaVu Sans Mono, FontAwesome 8
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -191,9 +192,11 @@ bindsym Mod1+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
-
 		position top
+		font pango:DejaVu Sans Mono, FontAwesome 8
+		status_command $HOME/.config/bumblebee-status/bumblebee-status -t dracula-powerline -m datetime memory git 
+
+
 }
 
 #######################################################################
@@ -208,16 +211,26 @@ bar {
 #######################################################################
 # exec i3-config-wizard
 
+#""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+# Gaps
+#""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+gaps inner 15
+gaps outer 30
 
 
 # """"""""""""""""""""""""""""""""''""""""""""""""""""""""""""""""""
+# Border layout
+# """"""""""""""""""""""""""""""""''""""""""""""""""""""""""""""""""
+default_border pixel 0
+
+# """"""""""""""""""""""""""""""""''""""""""""""""""""""""""""""""""
 #
-# Background
+#  Background
 #
 # """"""""""""""""""""""""""""""""''""""""""""""""""""""""""""""""""
 
 
-exec_always feh --bg-scale $HOME/Pictures/wall/kali.jpg
+exec_always feh --bg-scale $HOME/Pictures/wall/lake.jpg
 
 
 

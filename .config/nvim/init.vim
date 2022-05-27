@@ -55,8 +55,6 @@ let g:Rout_more_colors = 1
 set spelllang=en_au
 set spellfile=~/.config/nvim/en.utf-8.add
 
-" Tags
-nmap <F3> :TagbarToggle<CR>
 
 :set completeopt-=preview " For No Previews
 
