@@ -7,18 +7,20 @@
 add_newline = true
 
 
+# A continuation prompt that displays two filled in arrows
+continuation_prompt = "▶▶"
+
+
 # Replace the "❯" symbol in the prompt with "➜"
 [character] # The name of the module we are configuring is "character"
-success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
-
+success_symbol = "[➜](bold red)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
-disabled = true
+disabled = false
 
 
 [git_branch]
 symbol = "🌱 "
 truncation_length = 4
 truncation_symbol = ""
-ignore_branches = ["master", "main"]

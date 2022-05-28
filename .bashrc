@@ -1,3 +1,5 @@
+
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -6,14 +8,15 @@ alias pf="fzf --preview='less {}' --bind shift-up:preview-page-up,shift-down:pre
 
 # Set VI mode 
 set -o vi
-bind "jj":vi-movement-mode
+bind "jj:w":vi-movement-mode
 
 # """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 # 
 # Enter the editor by pressing v in normal mode 
 # and execute the commands by saving the temporary 
 # file. 
-# """"""""""""""""""""""""""""""""""""""""""""""""""""""""
+#""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
@@ -49,7 +52,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)":
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -157,6 +160,9 @@ alias cat='bat '
 #exa
 alias ls='exa -a -1 -l -F --color always  -g  --no-user -s type '
 #
+
+# Tmuxinator  ALIASES
+alias  tmuxinator='tx '
 
 
 # STARSHIP ---------------------------------------------
