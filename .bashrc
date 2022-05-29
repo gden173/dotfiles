@@ -25,9 +25,8 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # for examples
 alias pf="fzf --preview='less {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
 
-
 bind '"jk":vi-movement-mode'
-bind '"kj":vi-movement-mode'
+
 # """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 # 
 # Enter the editor by pressing v in normal mode 
@@ -60,6 +59,9 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+
+# For setting the history format 
+HISTTIMEFORMAT="%Y-%m-%d %T "
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
