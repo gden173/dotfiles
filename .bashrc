@@ -9,16 +9,25 @@
 
 
 
+#""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+#  Colored  Man  Pages
+#""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 alias pf="fzf --preview='less {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
 
 
-# Set VI mode 
-set -o vi
-bind "jj:w":vi-movement-mode
-
+bind '"jk":vi-movement-mode'
+bind '"kj":vi-movement-mode'
 # """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 # 
 # Enter the editor by pressing v in normal mode 
