@@ -1,48 +1,34 @@
-""""""""""""""""""""""""""""""""""""""
-" __     _____ __  __ ____   ____
-" \ \   / /_ _|  \/  |  _ \ / ___|
-"  \ \ / / | || |\/| | |_) | |
-"   \ V /  | || |  | |  _ <| |___
-"    \_/  |___|_|  |_|_| \_\\____|
-"
-"
-"  
-"
-"
-""""""""""""""""""""""""""""""""""""""
-
+set nocompatible
 
 """"""""""""""""""""""""""""""""""""""
 "
 " Leader Key
 "
 """"""""""""""""""""""""""""""""""""""
-let mapleader=" "
-
-
+let mapleader=","
 
 """"""""""""""""""""""""""""""""""""""
 "
 " Line Configurations
 "
 """"""""""""""""""""""""""""""""""""""
-
-
-
 " Numbered LInes
 set number
 set relativenumber
 set autoindent
 set tabstop=4
 set shiftwidth=4
+set syntax
+set nohlsearch
+set splitbelow splitright
+set title
+set t_Co=256
 
 """"""""""""""""""""""""""""""""""""""""
-"  Enable  Syntax 
+"  Enable  Syntax
 """"""""""""""""""""""""""""""""""""""""
-
 syntax on
-
-filetype plugin on
+filetype plugin indent on
 
 set smarttab
 set softtabstop=4
@@ -54,37 +40,117 @@ set wildmode=longest,list,full
 
 call plug#begin()
 
-Plug 'tanvirtin/monokai.nvim'
+" Tree Syntax Highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-Plug 'nvim-treesitter/nvim-treesitter'
-
-" Plug 'nvim-orgmode/orgmode'
+" Colorscheme
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " Formater
 Plug 'Chiel92/vim-autoformat'
+
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+
+" Git
 Plug 'tpope/vim-fugitive'            " allows git commands in vim session
-Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
-" Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
-" Plug 'ncm2/ncm2' " R Development
-" Plug 'roxma/nvim-yarp'
-" Plug 'jalvesaq/Nvim-R'
-" Plug 'gaalcaras/ncm-R'
+Plug 'ryanoasis/vim-devicons'
+
+" Autocomplete
+Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release','do': 'yarn install' }
+
+" Airline Status Line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
+Plug 'ncm2/ncm2' " R Development
+Plug 'roxma/nvim-yarp'
+Plug 'jalvesaq/Nvim-R'
+Plug 'gaalcaras/ncm-R'
+"
 Plug 'mhinz/vim-startify'            " A start menu for vim
-Plug 'tpope/vim-surround'            " replace surrounding characters
 Plug 'jiangmiao/auto-pairs'          " auto pair completion
+
 set encoding=UTF-8
 
 call plug#end()
 
+" turn on spelling and make a spell file
+set spelllang=en_au
+set spellfile=~/.config/nvim/en.utf-8.add
 
-colorscheme monokai_pro
+
+" https://medium.com/@Aenon/vim-swap-backup-undo-git-2bf353caa02f
+set backupdir=.backup/,~/.backup/,/tmp//
+set directory=.swp/,~/.swp/,/tmp//
+set undodir=.undo/,~/.undo/,/tmp//
 
 " Key Remaps
-imap jj <Esc>
+" jk and k
+imap kj <Esc>
+imap jk <Esc>
+
+set termguicolors
+colorscheme tokyonight
+
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:python3_host_prog = '/bin/python'
+
+set completeopt=menu,preview
+
+"""""""""""""""""""""""""""""""""""""""
+" COC Settings
+""""""""""""""""""""""""""""""""""""
+set encoding=utf-8
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=number
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 
+let g:coc_global_extension = [
+			\'coc-snippets',
+			\'coc-python',
+			\'coc-json',
+			\ ]
+set hidden
 """"""""""""""""""""""""""""""""""""""""
 "  Shell Scripting
 """"""""""""""""""""""""""""""""""""""""
@@ -108,16 +174,6 @@ let g:rout_follow_colorscheme = 1
 
 " R commands in R output are highlighted
 let g:Rout_more_colors = 1
-
-" turn on spelling and make a spell file
-set spelllang=en_au
-set spellfile=~/.config/nvim/en.utf-8.add
-
-
-:set completeopt-=preview " For No Previews
-
-
-
 " --- Just Some Notes ---
 " :PlugClean :PlugInstall :UpdateRemotePlugins
 "
@@ -194,4 +250,10 @@ endif
 
 " COC-VIM TAB SETTINGS END
 " --------------------------------------------------------
-
+ 
+ if has("autocmd") && exists("+omnifunc")
+	autocmd Filetype *
+		    \	if &omnifunc == "" |
+		    \		setlocal omnifunc=syntaxcomplete#Complete |
+		    \	endif
+    endif
