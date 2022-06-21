@@ -25,7 +25,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # for examples
 alias pf="fzf --preview='less {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
 
-bind "jk":vi-movement-mode
+bind '"jk":vi-movement-mode'
 
 # """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 # 
