@@ -50,8 +50,10 @@
         ( 2 , (rainbow overline 1.3))
         ( 3 , (rainbow bold 1.2))
         ( t , (semilight  1.1))))
+
 (setq modus-themes-themes-scale-headings t)
-	
+
+
 (setq modus-themes-org-blocks 'tinted-background)
 
 ;; If you're using Emacs 27, either install Modus themes or use this one!
@@ -98,12 +100,6 @@
 ;;; UNDO
 ;; Vim style undo not needed for emacs 28
 (use-package undo-fu)
-
-
-
-
-
-
 
 ;;; Vim Bindings
 (use-package evil
@@ -176,14 +172,33 @@
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
 
-(use-package evil-magit
-  :after magit)
-
 (use-package org)
 
+(use-package org-roam
+  :config
+  (make-directory "~/org-roam")
+  (setq org-roam-directory (file-truename "~/org-roam"))
+  )
 
 (use-package org-bullets
   :after org
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(org-roam evil-magit which-key use-package undo-fu org-bullets modus-themes magit ivy-rich gruvbox-theme evil-collection ess doom-modeline counsel-projectile all-the-icons)))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+
